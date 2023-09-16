@@ -124,7 +124,7 @@ const nexichain: NetworkUserConfig = {
 }
 
 const plgchain: NetworkUserConfig = {
-  url: "https://rpcurl.mainnet.plgchain.com",
+  url: "http://127.0.0.1:8545",
   chainId: 242,
   accounts: [process.env.KEY_PLINGA!],
 }
