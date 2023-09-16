@@ -1,8 +1,9 @@
+// SPDX-License-Identifier: MIT
 pragma solidity 0.6.12;
 
-import '@pancakeswap/pancake-swap-lib/contracts/token/BEP20/IBEP20.sol';
-import '@pancakeswap/pancake-swap-lib/contracts/token/BEP20/SafeBEP20.sol';
-import '@pancakeswap/pancake-swap-lib/contracts/access/Ownable.sol';
+// import '@pancakeswap/pancake-swap-lib/contracts/token/BEP20/IBEP20.sol';
+// import '@pancakeswap/pancake-swap-lib/contracts/token/BEP20/SafeBEP20.sol';
+// import '@pancakeswap/pancake-swap-lib/contracts/access/Ownable.sol';
 
 import './MasterChef.sol';
 
