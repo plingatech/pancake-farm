@@ -1,5 +1,6 @@
 import { ethers, network } from 'hardhat';
 import fs from 'fs';
+import fsExtra from 'fs-extra';
 import readlineSync from 'readline-sync';
 import { configs } from '../common/config';
 import { ResultType } from '../type/resultType';
@@ -37,14 +38,14 @@ async function main() {
 
     const MasterChef = await ethers.getContractFactory("MasterChef");
     console.log("Deploying MasterChef...");
-    const masterChef = await MasterChef.deploy(configs.plgchain.KITKAT,syrupBar.address,owner.getAddress(),configs.plgchain.KitkatPerBlock,configs.plgchain.StartBlock);
+    const masterChef = await MasterChef.deploy(configs.plgchain.KITKAT, syrupBar.address, owner.getAddress(), configs.plgchain.KitkatPerBlock, configs.plgchain.StartBlock);
     await masterChef.deployed();
-    
+
     const MasterChefV2 = await ethers.getContractFactory("MasterChefV2");
     console.log("Deploying MasterChefV2...");
-    const masterChefV2 = await MasterChefV2.deploy(masterChef.address, configs.plgchain.KITKAT, configs.plgchain.MASTER_PID,owner.getAddress());
+    const masterChefV2 = await MasterChefV2.deploy(masterChef.address, configs.plgchain.KITKAT, configs.plgchain.MASTER_PID, owner.getAddress());
     await masterChefV2.deployed();
-    
+
     console.log('KITKAT address is ', configs.plgchain.KITKAT);
     console.log('Multicall address is ', multicall.address);
     console.log('Multicall3 address is ', multicall3.address);
@@ -62,9 +63,9 @@ async function main() {
         multicall: multicall.address,
         multicall3: multicall3.address,
         signer: owner.getAddress(),
-      };
+    };
 
-    fs.writeJson(`../deployments/plinga.json`, result, { spaces: 2 })
+    fsExtra.writeJson(`../deployments/plinga.json`, result, { spaces: 2 })
 }
 
 
