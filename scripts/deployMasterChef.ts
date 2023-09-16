@@ -25,7 +25,7 @@ async function main() {
     const multicall3 = await Multicall3.deploy();
     await multicall3.deployed();
 
-    const SyrupBar = await ethers.getContractFactory("SyrupBar");
+    const SyrupBar = await ethers.getContractFactory("contracts/SyrupBar.sol:SyrupBar");
     console.log("Deploying SyrupBar...");
     const syrupBar = await SyrupBar.deploy(configs.plgchain.KITKAT);
     await syrupBar.deployed();
